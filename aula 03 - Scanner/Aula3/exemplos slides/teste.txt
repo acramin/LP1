@@ -1,0 +1,4 @@
+Nome do Comprador: Amanda 
+Produto Adquirido: Caneta 
+Quantidade Adquirida: 2 
+Preço Unitário: 3,50 

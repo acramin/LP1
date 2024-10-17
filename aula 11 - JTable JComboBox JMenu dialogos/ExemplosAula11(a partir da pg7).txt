@@ -1,0 +1,729 @@
+// Exemplo de Diálogo por Instanciação - Teste
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Exemplo1 extends JFrame implements ActionListener
+{
+   // Botão
+   JButton b;
+   
+   // Método Construtor
+   public Exemplo1()
+   {
+      // Cria um Conteiner de Tela
+      Container c = getContentPane();
+   
+      // Determina a tela como um FlowLayout
+      c.setLayout(new FlowLayout());
+      
+      // Cria um Botão com o texto "Clique"
+      b = new JButton("Clique");
+
+      // Adiona o Botão no Conteiner 
+      c.add(b);
+      
+      // Adiciona uma ação ao Botão
+      b.addActionListener(this);
+      
+      // Programa o tamanho inicial do FlowLayout em pxls
+      setSize(350,75);
+      
+      // Determina a localização inicial do FlowLayout em pxls
+      setLocation(470,50);
+      
+      // Determina qual o título do FlowLayout
+      setTitle("Exemplo de Diálogo (Instanciação)");
+      
+      // Estabelece que o FlowLayout será visível inicialmente    
+      setVisible(true);
+   }
+
+   // Método de tratamento do evento da ação do botão
+   public void actionPerformed(ActionEvent e)
+   {
+      // Verifica se o evento pertence ao botão
+      if(e.getSource() == b)
+      {
+         // Instancia um objeto de Dialogo
+         Dialogo1 a = new Dialogo1(this);
+         
+         // Apresenta o atributo valor (de Dialogo)
+         JOptionPane.showMessageDialog(null, "Valor Digitado: " + a.valor);
+     }
+   }
+      
+   // Método Principal
+   public static void main(String args[])
+   {
+      // Instancia um objeto de Exemplo
+      Exemplo1 prog = new Exemplo1();
+      
+      // Programa encerramento do Frame no Sair (X)
+      prog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   }
+}
+
+// Exemplo de Diálogo por Instanciação
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Dialogo1 extends JDialog implements ActionListener
+{
+   // Rótulo
+   JLabel lb;
+   
+   // Campo Texto
+   JTextField tf;
+   
+   // Botão
+   JButton bt;
+   
+   // Atributo de valor
+   int valor;
+  
+   // Método Construtor
+   public Dialogo1(JFrame fr)
+   {
+      // Invoca o método construtor da superclasse
+      super(fr, true);
+   
+      // Cria um Conteiner de Tela
+      Container cp = getContentPane();
+      
+      // Determina a tela como um FlowLayout
+      cp.setLayout(new FlowLayout());
+    
+      // Cria um Rótulo com o texto "Valor"
+      lb = new JLabel("Valor:");
+      
+      // Adiciona o Rótulo no Conteiner
+      cp.add(lb);
+            
+      // Cria um Campo Texto de largura 10 pxls 
+      tf = new JTextField(10);
+      
+      // Adiciona o Campo Texto no Conteiner
+      cp.add(tf);
+      
+      // Cria um Botão com o texto "OK"
+      bt = new JButton ("OK");
+     
+      // Adiona o Botão no Conteiner 
+      cp.add(bt);
+     
+      // Adiciona uma ação ao Botão
+      bt.addActionListener(this);
+     
+      // Programa o tamanho inicial do FlowLayout em pxls
+      setSize(200,100);
+      
+      // Determina a localização inicial do FlowLayout em pxls
+      setLocation(200,200);
+     
+      // Determina qual o título do FlowLayout
+      setTitle("Valores");
+      
+      // Estabelece que o FlowLayout será visível inicialmente       
+      setVisible(true);
+   }
+
+   // Método de tratamento do evento da ação do botão
+   public void actionPerformed(ActionEvent e)
+   {
+      // Verifica se o evento pertence ao botão
+      if (e.getSource() == bt)
+      {
+         // Lê o valor constante no campo texto e o atribui a valor
+         valor = Integer.parseInt(tf.getText());
+         
+         // Fecha e Libera o FlowLayout
+         dispose();
+      }
+   }
+   
+   // Método para acessar o atributo Valor
+   public int getValor()
+   {
+      return   valor;
+   }
+}
+
+
+// ---------------------------------------------------------------------------------------
+
+
+// Exemplo de Diálogo por Método - Teste
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Exemplo2 extends JFrame implements ActionListener
+{
+   // Botão
+   JButton b;
+   
+   // Método Construtor
+   public Exemplo2()
+   {
+      // Cria um Conteiner de Tela
+      Container c = getContentPane();
+   
+      // Determina a tela como um FlowLayout
+      c.setLayout(new FlowLayout());
+      
+      // Cria um Botão com o texto "Clique"
+      b = new JButton("Clique");
+
+      // Adiona o Botão no Conteiner 
+      c.add(b);
+      
+      // Adiciona uma ação ao Botão
+      b.addActionListener(this);
+      
+      // Programa o tamanho inicial do FlowLayout em pxls
+      setSize(350,75);
+      
+      // Determina a localização inicial do FlowLayout em pxls
+      setLocation(470,50);
+
+      // Determina qual o título do FlowLayout
+      setTitle("Exemplo de Diálogo (Método)");
+      
+      // Estabelece que o FlowLayout será visível inicialmente    
+      setVisible(true);
+   }
+
+   // Método de tratamento do evento da ação do botão
+   public void actionPerformed(ActionEvent e)
+   {
+      // Verifica se o evento pertence ao botão
+      if(e.getSource() == b)
+      {
+         // Apresenta o atributo valor (de Dialogo)
+         JOptionPane.showMessageDialog(null,"Valor Digitado:"+Dialogo2.getValor(this));
+     }
+   }
+      
+   // Método Principal
+   public static void main(String args[])
+   {
+      // Instancia um objeto de Exemplo
+      Exemplo2 prog = new Exemplo2();
+      
+      // Programa encerramento do Frame no Sair (X)
+      prog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   }
+}
+
+// Exemplo de Diálogo por Método
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Dialogo2 extends JDialog implements ActionListener
+{
+   // Rótulo
+   JLabel lb;
+   
+   // Campo Texto
+   JTextField tf;
+   
+   // Botão
+   JButton bt;
+   
+   // Atributo de valor
+   int valor;
+  
+   // Método Construtor
+   private Dialogo2(JFrame fr)
+   {
+      // Invoca o método construtor da superclasse
+      super(fr, true);
+   
+      // Cria um Conteiner de Tela
+      Container cp = getContentPane();
+      
+      // Determina a tela como um FlowLayout
+      cp.setLayout(new FlowLayout());
+    
+      // Cria um Rótulo com o texto "Valor"
+      lb = new JLabel("Valor:");
+      
+      // Adiciona o Rótulo no Conteiner
+      cp.add(lb);
+            
+      // Cria um Campo Texto de largura 10 pxls 
+      tf = new JTextField(10);
+      
+      // Adiciona o Campo Texto no Conteiner
+      cp.add(tf);
+      
+      // Cria um Botão com o texto "OK"
+      bt = new JButton ("OK");
+     
+      // Adiona o Botão no Conteiner 
+      cp.add(bt);
+     
+      // Adiciona uma ação ao Botão
+      bt.addActionListener(this);
+     
+      // Programa o tamanho inicial do FlowLayout em pxls
+      setSize(200,100);
+      
+      // Determina a localização inicial do FlowLayout em pxls
+      setLocation(200,200);
+     
+      // Determina qual o título do FlowLayout
+      setTitle("Valores");
+      
+      // Estabelece que o FlowLayout será visível inicialmente       
+      setVisible(true);
+   }
+     
+   // Método de tratamento do evento da ação do botão
+   public void actionPerformed(ActionEvent e)
+   {
+      // Verifica se o evento pertence ao botão
+      if (e.getSource() == bt)
+      {
+         // Lê o valor constante no campo texto e o atribui a valor
+         valor = Integer.parseInt(tf.getText());
+         
+         // Fecha e Libera o FlowLayout
+         dispose();
+      }
+   }
+   
+   // Método para acessar o atributo Valor
+   static int getValor(JFrame fr)
+   {
+      Dialogo2 dl = new Dialogo2(fr);
+      return   dl.valor;
+   }
+}
+
+// ---------------------------------------------------------------------------------------
+
+// CheckBoxFrame.java
+// Creating JCheckBox buttons.
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+
+public class CheckBoxFrame extends JFrame 
+{
+   private JTextField textField; // exibe o texto na alteração de fontes
+   private JCheckBox boldJCheckBox; // para selecionar/desselecionar negrito
+   private JCheckBox italicJCheckBox; // para selecionar/desselecionar itálico
+
+   // construtor CheckBoxFrame adiciona JCheckBoxes ao JFrame
+   public CheckBoxFrame()
+   {
+      super( "JCheckBox Test" );
+      setLayout( new FlowLayout() ); // configura o layout de frame
+
+      // configura JTextField e sua fonte
+      textField = new JTextField( "Watch the font style change", 20 );
+      textField.setFont( new Font( "Serif", Font.PLAIN, 14 ) );
+      add( textField ); // adiciona textField ao JFrame
+
+      boldJCheckBox = new JCheckBox( "Bold" ); // cria caixa de seleção p/ negrito
+      italicJCheckBox = new JCheckBox( "Italic" ); // cria itálico
+      add( boldJCheckBox ); // adiciona caixa de seleção de negrito ao JFrame
+      add( italicJCheckBox ); // adiciona caixa de seleção de itálico ao JFrame
+
+      // listeners registradores para JCheckBoxes
+      CheckBoxHandler handler = new CheckBoxHandler();
+      boldJCheckBox.addItemListener( handler );       
+      italicJCheckBox.addItemListener( handler );     
+   } // fim do construtor CheckBoxFrame
+
+   // classe interna private para tratamento de evento ItemListener
+   private class CheckBoxHandler implements ItemListener
+   {
+      private int valBold = Font.PLAIN; // controla o estilo de fonte negrito
+      private int valItalic = Font.PLAIN; // controla o estilo de fonte itálico
+
+      // responde aos eventos de caixa de seleção
+      public void itemStateChanged( ItemEvent event )
+      {
+         // processa eventos da caixa de seleção de negrito
+         if (event.getSource() == boldJCheckBox)
+            valBold = 
+               boldJCheckBox.isSelected()? Font.BOLD : Font.PLAIN;
+               
+         // processa eventos da caixa de seleção de itálico
+         if (event.getSource() == italicJCheckBox)
+            valItalic = 
+               italicJCheckBox.isSelected()? Font.ITALIC : Font.PLAIN;
+
+         // configura a fonte do campo de texto
+         textField.setFont( 
+            new Font( "Serif", valBold + valItalic, 14 ) );
+      } // fim do método itemStateChanged
+   } // fim da classe CheckBoxHandler interna private
+} // fim da classe CheckBoxFrame
+
+//--------------------------------------------------------------------------------------
+// CheckBoxTest.java
+// Testando CheckBoxFrame.
+
+import javax.swing.JFrame;
+
+public class CheckBoxTest
+{
+   public static void main( String args[] )
+   { 
+      CheckBoxFrame checkBoxFrame = new CheckBoxFrame(); 
+      checkBoxFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+      checkBoxFrame.setSize( 275, 100 ); // configura o tamanho do frame
+      checkBoxFrame.setVisible( true ); // exibe o frame
+   } // fim de main
+} // fim da classe CheckBoxTest
+
+//--------------------------------------------------------------------------------------
+// RadioButtonFrame.java
+// Criando botões de opção utilizando ButtonGroup e JRadioButton.
+
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+
+public class RadioButtonFrame extends JFrame 
+{
+   private JTextField textField; // utilizado para exibir alterações de fonte
+   private Font plainFont; // fonte para texto simples
+   private Font boldFont; // fonte para texto em negrito
+   private Font italicFont; // fonte para texto em itálico
+   private Font boldItalicFont; // fonte para texto em negrito e itálico
+   private JRadioButton plainJRadioButton; // seleciona texto simples
+   private JRadioButton boldJRadioButton; // seleciona texto em negrito
+   private JRadioButton italicJRadioButton; // seleciona texto em itálico
+   private JRadioButton boldItalicJRadioButton; // negrito e itálico
+   private ButtonGroup radioGroup; // buttongroup para armazenar botões de opção
+
+   // construtor RadioButtonFrame adiciona JRadioButtons ao JFrame
+   public RadioButtonFrame()
+   {
+      super( "RadioButton Test" );
+      setLayout( new FlowLayout() ); // configura o layout de frame
+
+      textField = new JTextField( "Watch the font style change", 25 );
+      add( textField ); // adiciona textField ao JFrame
+
+      // cria botões de opção
+      plainJRadioButton = new JRadioButton( "Plain", true );            
+      boldJRadioButton = new JRadioButton( "Bold", false );             
+      italicJRadioButton = new JRadioButton( "Italic", false );         
+      boldItalicJRadioButton = new JRadioButton( "Bold/Italic", false );
+      add( plainJRadioButton ); // adiciona botão no estilo simples ao JFrame
+      add( boldJRadioButton ); // adiciona botão de negrito ao JFrame
+      add( italicJRadioButton ); // adiciona botão de itálico ao JFrame
+      add( boldItalicJRadioButton ); // adiciona botão de negrito e itálico
+
+      // cria relacionamento lógico entre JRadioButtons
+      radioGroup = new ButtonGroup(); // cria ButtonGroup
+      radioGroup.add( plainJRadioButton ); // adiciona simples ao grupo
+      radioGroup.add( boldJRadioButton ); // adiciona negrito ao grupo
+      radioGroup.add( italicJRadioButton ); // adiciona itálico ao grupo
+      radioGroup.add( boldItalicJRadioButton ); // adiciona negrito e itálico
+
+      // cria fonte objetos
+      plainFont = new Font( "Serif", Font.PLAIN, 14 );
+      boldFont = new Font( "Serif", Font.BOLD, 14 );
+      italicFont = new Font( "Serif", Font.ITALIC, 14 );
+      boldItalicFont = new Font( "Serif", Font.BOLD + Font.ITALIC, 14 );
+      textField.setFont( plainFont ); // configura a fonte inicial como simples
+      
+      // registra eventos para JRadioButtons
+      plainJRadioButton.addItemListener(            
+         new RadioButtonHandler( plainFont ) );     
+      boldJRadioButton.addItemListener(             
+         new RadioButtonHandler( boldFont ) );      
+      italicJRadioButton.addItemListener(           
+         new RadioButtonHandler( italicFont ) );    
+      boldItalicJRadioButton.addItemListener(       
+         new RadioButtonHandler( boldItalicFont ) );
+   } // fim do construtor RadioButtonFrame
+
+   // classe interna private para tratar eventos de botão de opção
+   private class RadioButtonHandler implements ItemListener
+   {
+      private Font font; // fonte associada com esse listener
+
+      public RadioButtonHandler( Font f )
+      {
+         font = f; // configura a fonte desse listener
+      } // fim do construtor RadioButtonHandler
+           
+      // trata eventos de botão de opção
+      public void itemStateChanged( ItemEvent event )
+      {
+         textField.setFont( font ); // configura fonte de textField
+      } // fim do método itemStateChanged
+   } // fim da classe RadioButtonHandler interna private
+} // fim da classe RadioButtonFrame
+
+//--------------------------------------------------------------------------------------
+// RadioButtonTest.java
+// Testando RadioButtonFrame.
+import javax.swing.JFrame;
+
+public class RadioButtonTest  
+{
+   public static void main( String args[] )
+   {
+      RadioButtonFrame radioButtonFrame = new RadioButtonFrame();
+      radioButtonFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+      radioButtonFrame.setSize( 300, 100 ); // configura o tamanho do frame
+      radioButtonFrame.setVisible( true ); // exibe o frame
+   } // fim de main
+} // fim da classe RadioButtonTest
+
+//--------------------------------------------------------------------------------------
+
+// MenuFrame.java
+// Demonstrando menus.
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import javax.swing.JFrame;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JCheckBoxMenuItem;   
+import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.ButtonGroup;
+import javax.swing.JMenu;    
+import javax.swing.JMenuItem;
+import javax.swing.JMenuBar;
+
+public class MenuFrame extends JFrame 
+{
+   private final Color colorValues[]= {Color.BLACK, Color.BLUE, Color.RED, Color.GREEN};   
+   private JRadioButtonMenuItem colorItems[]; // itens do menu Color  
+   private JRadioButtonMenuItem fonts[]; // itens do menu Font        
+   private JCheckBoxMenuItem styleItems[]; // itens do menu Font Style
+   private JLabel displayJLabel; // exibe texto de exemplo
+   private ButtonGroup fontButtonGroup; // gerencia itens do menu Font
+   private ButtonGroup colorButtonGroup; // gerencia itens do menu Color
+   private int style; // utilizado para criar estilos de fontes
+
+   // construtor sem argumento para configurar a GUI
+   public MenuFrame()
+   {
+      super( "Using JMenus" );     
+
+      JMenu fileMenu = new JMenu( "File" ); // cria o menu File
+      fileMenu.setMnemonic( 'F' ); // configura o mnemônico como F        
+
+      // cria item de menu About... 
+      JMenuItem aboutItem = new JMenuItem( "About..." );       
+      aboutItem.setMnemonic( 'A' ); // configura o mnemônico com A       
+      fileMenu.add( aboutItem ); // adiciona o item about ao menu File
+      aboutItem.addActionListener(
+
+         new ActionListener() // classe interna anônima
+         {  
+            // exibe um diálogo de mensagem quando o usuário seleciona About...
+            public void actionPerformed( ActionEvent event )
+            {
+               JOptionPane.showMessageDialog( MenuFrame.this,
+                  "This is an example\nof using menus",
+                  "About", JOptionPane.PLAIN_MESSAGE );
+            } // fim do método actionPerformed
+         } // fim da classe interna anônima
+      ); // fim da chamada para addActionListener
+ 
+      JMenuItem exitItem = new JMenuItem( "Exit" ); // cria o item exit
+      exitItem.setMnemonic( 'x' ); // configura o mnemônico como x                
+      fileMenu.add( exitItem ); // adiciona o item exit ao menu File          
+      exitItem.addActionListener(
+
+         new ActionListener() // classe interna anônima
+         {  
+            // termina o aplicativo quando o usuário clica exitItem
+            public void actionPerformed( ActionEvent event )
+            {
+               System.exit( 0 ); // encerra o aplicativo
+            } // fim do método actionPerformed
+         } // fim da classe interna anônima
+      ); // fim da chamada para addActionListener
+
+      JMenuBar bar = new JMenuBar(); // cria a barra de menus
+      setJMenuBar( bar ); // adiciona uma barra de menus ao aplicativo
+      bar.add( fileMenu ); // adiciona o menu File à barra de menus
+
+      JMenu formatMenu = new JMenu( "Format" ); // cria o menu Format
+      formatMenu.setMnemonic( 'r' ); // configura o mnemônico como r            
+
+      // array listando cores de string
+      String colors[] = { "Black", "Blue", "Red", "Green" };
+
+      JMenu colorMenu = new JMenu( "Color" ); // cria o menu Color
+      colorMenu.setMnemonic( 'C' ); // configura o mnemônico como C          
+
+      // cria itens do menu Color com botões de opção
+      colorItems = new JRadioButtonMenuItem[ colors.length ];
+      colorButtonGroup = new ButtonGroup(); // gerencia cores
+      ItemHandler itemHandler = new ItemHandler(); // handler para cores
+
+      // cria itens do menu Color com botões de opção
+      for ( int count = 0; count < colors.length; count++ ) 
+      {
+         colorItems[ count ] =                                          
+            new JRadioButtonMenuItem( colors[ count ] ); // cria o item
+         colorMenu.add( colorItems[ count ] ); // adiciona o item ao menu Color
+         colorButtonGroup.add( colorItems[ count ] ); // adiciona ao grupo   
+         colorItems[ count ].addActionListener( itemHandler );
+      } // fim do for
+
+      colorItems[ 0 ].setSelected( true ); // seleciona o primeiro item Color
+
+      formatMenu.add( colorMenu ); // adiciona o menu Color ao menu Format
+      formatMenu.addSeparator(); // adiciona um separador no menu          
+      // array listando nomes de fonte
+      String fontNames[] = { "Serif", "Monospaced", "SansSerif" };
+      JMenu fontMenu = new JMenu( "Font" ); // cria a fonte do menu
+      fontMenu.setMnemonic( 'n' ); // configura o mnemônico como n        
+
+      // cria itens do menu radiobutton para nomes de fonte
+      fonts = new JRadioButtonMenuItem[ fontNames.length ];     
+      fontButtonGroup = new ButtonGroup(); // gerencia os nomes das fontes
+
+      // criar itens do menu Font com botões de opção
+      for ( int count = 0; count < fonts.length; count++ ) 
+      {
+        fonts[ count ] = new JRadioButtonMenuItem( fontNames[ count ] );
+         fontMenu.add( fonts[ count ] ); // adiciona fonte ao menu Font        
+         fontButtonGroup.add( fonts[ count ] ); // adiciona ao grupo de botões   
+         fonts[ count ].addActionListener( itemHandler ); // adiciona handler
+      } // fim do for
+
+      fonts[ 0 ].setSelected( true ); // seleciona o primeiro item do menu Font
+      fontMenu.addSeparator(); // adiciona uma barra separadora ao menu Font    
+
+      String styleNames[] = { "Bold", "Italic" }; // nomes dos estilos
+      styleItems = new JCheckBoxMenuItem[ styleNames.length ];
+      StyleHandler styleHandler = new StyleHandler(); // handler de estilo
+
+      // criar itens do menu Style com caixas de seleção
+      for ( int count = 0; count < styleNames.length; count++ ) 
+      {
+         styleItems[ count ] =                                        
+            new JCheckBoxMenuItem( styleNames[ count ] ); // para estilo
+         fontMenu.add( styleItems[ count ] ); // adiciona ao menu Font     
+         styleItems[ count ].addItemListener( styleHandler ); // handler
+      } // fim do for
+
+      formatMenu.add( fontMenu ); // adiciona o menu Font ao menu Format
+      bar.add( formatMenu ); // adiciona o menu Format à barra de menus      
+     
+      // configura o rótulo para exibir texto
+      displayJLabel = new JLabel( "Sample Text", SwingConstants.CENTER );
+      displayJLabel.setForeground( colorValues[ 0 ] );
+      displayJLabel.setFont( new Font( "Serif", Font.PLAIN, 72 ) );
+
+      getContentPane().setBackground( Color.CYAN ); // configura o fundo
+      add( displayJLabel, BorderLayout.CENTER ); // adiciona displayJLabel
+   } // fim do construtor de MenuFrame
+
+   // classe interna para tratar eventos de ação dos itens de menu
+   private class ItemHandler implements ActionListener 
+   {
+     // processa seleções de cor e fonte
+      public void actionPerformed( ActionEvent event )
+      {
+         // processa a seleção de cor
+         for ( int count = 0; count < colorItems.length; count++ )
+         {
+            if ( colorItems[ count ].isSelected() ) 
+            {
+               displayJLabel.setForeground( colorValues[ count ] );
+               break;
+            } // fim do if
+         } // fim do for
+
+         // processa a seleção de fonte
+         for ( int count = 0; count < fonts.length; count++ )
+         {
+            if ( event.getSource() == fonts[ count ] ) 
+            {
+               displayJLabel.setFont( 
+                  new Font( fonts[ count ].getText(), style, 72 ) );
+            } // fim do if
+         } // fim do for
+
+         repaint(); // redesenha o aplicativo
+      } // fim do método actionPerformed
+   } // fim da classe ItemHandler
+
+   // classe interna para tratar eventos dos itens de menu com caixa de seleção
+   private class StyleHandler implements ItemListener 
+   {
+      // processa seleções de estilo da fonte
+      public void itemStateChanged( ItemEvent e )
+      {
+         style = 0; // inicializa o estilo
+
+         // verifica se negrito foi selecionado
+         if ( styleItems[ 0 ].isSelected() )
+            style += Font.BOLD; // adiciona negrito ao estilo
+
+         // verifica se itálico foi selecionado
+         if ( styleItems[ 1 ].isSelected() )
+            style += Font.ITALIC; // adiciona itálico ao estilo
+
+         displayJLabel.setFont( 
+            new Font( displayJLabel.getFont().getName(), style, 72 ) );
+         repaint(); // redesenha o aplicativo
+      } // fim do método itemStateChanged
+   } // fim da classe StyleHandler
+} // fim da classe MenuFrame
+
+//--------------------------------------------------------------------------------------
+// MenuTest.java
+// Testando MenuFrame.
+import javax.swing.JFrame;
+
+public class MenuTest
+{
+   public static void main( String args[] )
+   { 
+      MenuFrame menuFrame = new MenuFrame(); // criar MenuFrame
+      menuFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+      menuFrame.setSize( 500, 200 ); // configura o tamanho do frame
+      menuFrame.setVisible( true ); // exibe o frame
+   } // fim de main
+} // fim da classe MenuTest
+
+/**************************************************************************
+ * (C) Copyright 1992-2005 by Deitel & Associates, Inc. and               *
+ * Pearson Education, Inc. All Rights Reserved.                           *
+ *                                                                        *
+ * DISCLAIMER: The authors and publisher of this book have used their     *
+ * best efforts in preparing the book. These efforts include the          *
+ * development, research, and testing of the theories and programs        *
+ * to determine their effectiveness. The authors and publisher make       *
+ * no warranty of any kind, expressed or implied, with regard to these    *
+ * programs or to the documentation contained in these books. The authors *
+ * and publisher shall not be liable in any event for incidental or       *
+ * consequential damages in connection with, or arising out of, the       *
+ * furnishing, performance, or use of these programs.                     *
+ *************************************************************************/
+

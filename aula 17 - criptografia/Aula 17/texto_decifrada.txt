@@ -1,0 +1,30 @@
+Mensagem Decifrada com Dummy (Hexadecimal):
+0000 - 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 70  - abcdefghijklmnop
+0010 - 71 72 73 74 75 76 77 78 79 7a 0d 0a 30 31 32 33  - qrstuvwxyz..0123
+0020 - 34 35 36 37 38 39                                - 456789
+
+
+Mensagem Decifrada com Dummy (String):
+abcdefghijklmnopqrstuvwxyz
+0123456789
+
+Mensagem Decifrada com AES (Hexadecimal):
+0000 - 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 70  - abcdefghijklmnop
+0010 - 71 72 73 74 75 76 77 78 79 7a 0d 0a 30 31 32 33  - qrstuvwxyz..0123
+0020 - 34 35 36 37 38 39                                - 456789
+
+
+Mensagem Decifrada com AES (String):
+abcdefghijklmnopqrstuvwxyz
+0123456789
+
+Mensagem Decifrada com RSA (Hexadecimal):
+0000 - 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 70  - abcdefghijklmnop
+0010 - 71 72 73 74 75 76 77 78 79 7a 0d 0a 30 31 32 33  - qrstuvwxyz..0123
+0020 - 34 35 36 37 38 39                                - 456789
+
+
+Mensagem Decifrada com RSA (String):
+abcdefghijklmnopqrstuvwxyz
+0123456789
+

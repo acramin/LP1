@@ -1,0 +1,10 @@
+Abacaxi
+Banana
+Carro
+Dado
+Escada
+Fogo
+Goiaba
+Hospital
+Igreja
+Janela
