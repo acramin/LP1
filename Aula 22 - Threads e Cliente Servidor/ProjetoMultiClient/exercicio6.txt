@@ -1,0 +1,7 @@
+Se o número de clientes for muito elevado, pode haver o consumo excessivo da CPU e da memória no servidor.
+A quantidade de clientes é limitada principalmente por recursos de hardware.
+
+Também pode ser limitada pragmaticamente por carga no servidor e limites do sistema operacional, isso é, 
+o desempenho do servidor começa a cair a ponto de gerar erros.
+
+O limite basicamente depende da infraestrutura do sistema e da configuração do servidor.
