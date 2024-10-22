@@ -43,3 +43,11 @@ public class ClientSocket {
         return !saida.checkError();
     }
 }
+
+/*
+ * A classe ClientSocket é responsável por encapsular o socket do cliente. Ela
+ * possui métodos para enviar e receber mensagens do servidor. O método
+ * getRemoteSocketAddress() retorna o endereço do cliente. O método close() fecha
+ * o socket do cliente. O método getMessage() retorna a próxima mensagem do
+ * cliente. O método sendMessage() envia uma mensagem para o cliente.
+ */

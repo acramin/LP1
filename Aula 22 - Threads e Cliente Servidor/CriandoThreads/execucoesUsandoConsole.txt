@@ -1,0 +1,18 @@
+exemplo 8
+
+A execução é a mesma do que apenas rodar na IDE. O resultado exibido foi de 44,94 segundos.
+
+exemplo 9
+
+Passando o 1 como argumento para a main, a exucução retorna 41,63 segundos, diminuindo o tempo de execução.
+Nesse caso, assim como no anterior, foi criada apenas uma thread.
+
+exemplo 10
+
+Passando o 2 como argumento para a main, a execução retorna 21,17 segundos, diminuindo ainda mais oa tempo de execução. 
+Nesse caso foram criadas duas threads. 
+
+exemplo 11
+
+Passando o 3 como argumento para a main, a execução retorna 17,70 segundos, diminuindo ainda mais oa tempo de execução.
+Nesse caso forma criadas três threads.

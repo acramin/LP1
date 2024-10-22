@@ -42,3 +42,11 @@ public class Client {
         System.out.println("Cliente finalizado!");
     }
 }
+
+/*
+ * A classe cliente é responsável por enviar mensagens para o servidor. Ela
+ * possui um método start() que cria um socket para se conectar ao servidor e
+ * um método messageLoop() que fica aguardando o usuário digitar uma mensagem
+ * para enviar ao servidor. O cliente finaliza quando o usuário digitar a
+ * mensagem sair.
+ */

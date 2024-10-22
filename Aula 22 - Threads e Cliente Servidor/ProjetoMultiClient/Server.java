@@ -27,7 +27,6 @@ public class Server {
         try{
             while((msg = clientSocket.getMessage()) != null && !msg.equals("sair")){
                 System.out.printf("Mensagem recebida do cliente %s: %s\n",  clientSocket.getRemoteSocketAddress(), msg);
-               
             }
         } finally {
             clientSocket.close();
@@ -48,3 +47,11 @@ public class Server {
 
 }
 
+/*
+ * A classe Server é responsável por aceitar conexões de clientes e criar uma
+ * thread para cada cliente. Ela possui um método start() que cria um socket
+ * para aguardar conexões de clientes e um método clientConnectionLoop() que
+ * cria uma thread para cada cliente conectado. O método clientMessageLoop()
+ * recebe mensagens do cliente e imprime no console. O servidor finaliza quando
+ * o usuário digitar a mensagem sair.
+ */

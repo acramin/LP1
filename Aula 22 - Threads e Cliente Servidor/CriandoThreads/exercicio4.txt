@@ -1,0 +1,9 @@
+Quanto maior a quantidade de threads criadas, mais rápido o processo termina já que o trabalho de 
+processamento será dividido entre elas.
+
+Porém, aumentar demais a quantidade pode gerar overhead de gerenciamento de threads, prejudicando o desempenho. 
+
+O valor de N tem a limitação da quantidade de núcleos da CPU disponíveis para fazer o paralelismo, 
+caso contrário terá competição pela CPU entre as threads.
+
+Assim, o valor de N ideal está entre a quantidade de núcleos da CPU e o dobro dessa quantidade.
