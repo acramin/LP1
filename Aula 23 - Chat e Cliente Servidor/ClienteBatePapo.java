@@ -51,6 +51,4 @@ public class ClienteBatePapo implements Runnable{
         System.out.println("Cliente finalizado");
     }
 
-
-
 }
