@@ -1,6 +1,8 @@
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+
 
 public class ClienteBatePapo implements Runnable{
     private SocketCliente clientSocket;
