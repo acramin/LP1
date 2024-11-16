@@ -97,7 +97,7 @@ public class SimpleClientTestGUI extends JFrame {
         lStatus.setBounds(10, 40, 100, 20);
         add(lStatus);
 
-        tStatus = new JTextField();
+        tStatus = new JTextField("Aguardando mensagem...");
         tStatus.setBounds(120, 40, 150, 20);
         tStatus.setEditable(false);
         add(tStatus);
