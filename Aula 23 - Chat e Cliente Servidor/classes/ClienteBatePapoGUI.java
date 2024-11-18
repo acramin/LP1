@@ -13,7 +13,9 @@ public class ClienteBatePapoGUI extends JFrame implements Runnable {
 
     public ClienteBatePapoGUI() {
         setTitle("Cliente Bate-Papo");
-        setSize(600, 400);
+        setSize(700, 400);
+        setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
         connectToServer();   
@@ -35,8 +37,28 @@ public class ClienteBatePapoGUI extends JFrame implements Runnable {
         clearButton = new JButton("Limpar");
         exitButton = new JButton("Sair");
 
+
+        exitButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        exitButton.setBackground(Color.RED);
+        //exitButton.setForeground(Color.WHITE);
+
+        sendButton.setBackground(Color.GREEN);
+        //sendButton.setForeground(Color.WHITE);
+        sendButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+
+        clearButton.setBackground(Color.ORANGE);
+        //clearButton.setForeground(Color.WHITE);
+        clearButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+
+        inputField.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+        messageArea.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+        messageArea.setBackground(Color.LIGHT_GRAY);
+
         // Painel inferior com campo de texto e botões
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+
+        bottomPanel.setBackground(Color.DARK_GRAY);
+
         bottomPanel.add(inputField);
         bottomPanel.add(sendButton);
         bottomPanel.add(clearButton);
