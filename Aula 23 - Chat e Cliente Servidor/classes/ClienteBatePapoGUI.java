@@ -41,18 +41,27 @@ public class ClienteBatePapoGUI extends JFrame implements Runnable {
         exitButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
         exitButton.setBackground(Color.RED);
         //exitButton.setForeground(Color.WHITE);
+        exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         sendButton.setBackground(Color.GREEN);
         //sendButton.setForeground(Color.WHITE);
         sendButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        sendButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         clearButton.setBackground(Color.ORANGE);
         //clearButton.setForeground(Color.WHITE);
         clearButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+        clearButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         inputField.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+        inputField.setBackground(Color.LIGHT_GRAY);
+        inputField.setForeground(Color.BLACK);
+        inputField.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
         messageArea.setFont(new Font("Times New Roman", Font.PLAIN, 16));
         messageArea.setBackground(Color.LIGHT_GRAY);
+        messageArea.setForeground(Color.BLACK);
+        messageArea.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         // Painel inferior com campo de texto e botões
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
